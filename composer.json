@@ -23,7 +23,7 @@
     },
     "scripts": {
         "test": "phpunit",
-        "test-coverage": "phpunit --coverage-html logs/phpunit/coverage-report --coverage-clover logs/phpunit/clover.xml --log-junit logs/phpunit/test-report.xml",
+        "test-coverage": "phpunit --coverage-html logs/phpunit/coverage-report --coverage-clover logs/phpunit/clover.xml --coverage-text --log-junit logs/phpunit/test-report.xml",
         "cs": "phpcs --standard=PSR2 src test",
         "phpstan": "phpstan analyse --level 7 src test",
         "test-all": "composer test-coverage && composer cs && composer phpstan"
