@@ -1,0 +1,12 @@
+{
+    "name": "lencse/queue",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Levente Löki",
+            "email": "leventeloki@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
