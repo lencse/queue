@@ -7,7 +7,6 @@ services:
             - '2006:80'
         volumes:
             - ./public:/public
-            - ./api:/api
             - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
         links:
             - php
