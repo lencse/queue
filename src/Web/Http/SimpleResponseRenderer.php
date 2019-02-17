@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Web\Http;
 
-class SimpleResponseRenderer implements ResponseRenderer
+final class SimpleResponseRenderer implements ResponseRenderer
 {
     public function render(JsonResponse $response): void
     {

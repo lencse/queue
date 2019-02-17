@@ -6,15 +6,10 @@ use Lencse\Queue\DependencyInjection\Adapter\AurynContainer;
 use Lencse\Queue\Job\CreateJob;
 use Lencse\Queue\Job\IdGenerator;
 use Lencse\Queue\Job\RandomIdGenerator;
-use Lencse\Queue\Web\Http\HttpMethod;
 use Lencse\Queue\Web\Http\RequestSource;
 use Lencse\Queue\Web\Http\ResponseRenderer;
 use Lencse\Queue\Web\Http\SimpleResponseRenderer;
 use Lencse\Queue\Web\Http\SuperGlobalsRequestSource;
-use Lencse\Queue\Web\Json\JobEncoder;
-use Lencse\Queue\Web\Routing\Handler;
-use Lencse\Queue\Web\Routing\Path;
-use Lencse\Queue\Web\Routing\Route;
 use Lencse\Queue\Web\Routing\Router;
 
 $config = require 'config.php';

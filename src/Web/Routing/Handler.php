@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Web\Routing;
 
-class Handler
+final class Handler
 {
     /**
      * @var string

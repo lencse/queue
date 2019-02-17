@@ -6,7 +6,7 @@ use Auryn\Injector;
 use Lencse\Queue\Application\Invoker;
 use Lencse\Queue\DependencyInjection\Container;
 
-class AurynContainer implements Container, Invoker
+final class AurynContainer implements Container, Invoker
 {
     /**
      * @var Injector
