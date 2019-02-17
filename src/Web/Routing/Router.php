@@ -20,7 +20,7 @@ final class Router
     public function route(Request $request): RoutingResult
     {
         foreach ($this->routes as $route) {
-            if ($route->path()->match($request->uri()) || $route->method()->match($request->method())) {
+            if ($route->path()->match($request->uri()) && $route->method()->match($request->method())) {
                 return new RoutingResult($route->handler());
             }
         }
