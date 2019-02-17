@@ -24,8 +24,8 @@ final class Job
         return new self($idGenerator->generate());
     }
 
-    public static function fromId(int $id): self
+    public static function fromData(JobData $data): self
     {
-        return new self($id);
+        return new self($data->id());
     }
 }

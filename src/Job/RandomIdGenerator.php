@@ -22,6 +22,6 @@ final class RandomIdGenerator implements IdGenerator
 
     public function generate(): int
     {
-        return rand($this->min, $this->max);
+        return random_int($this->min, $this->max);
     }
 }
