@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Job;
 
-class JobData
+final class JobData
 {
     /**
      * @var int
