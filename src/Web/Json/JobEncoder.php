@@ -6,7 +6,7 @@ use Lencse\Queue\Job\JobData;
 
 final class JobEncoder
 {
-    public function encode(JobData $data): string
+    public function __invoke(JobData $data): string
     {
         $result = json_encode([
             'id' => $data->id()
