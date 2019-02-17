@@ -19,18 +19,21 @@
         }
     },
     "require": {
-        "php": ">=7.2.0"
+        "php": ">=7.2.0",
+        "rdlowrey/auryn": "^1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpstan/phpstan": "^0.11.2",
+        "phploc/phploc": "^4.0"
     },
     "scripts": {
         "test": "phpunit",
         "test-coverage": "phpunit --coverage-html logs/phpunit/coverage-report --coverage-clover logs/phpunit/clover.xml --coverage-text --log-junit logs/phpunit/test-report.xml",
         "cs": "phpcs --standard=PSR2 src test",
         "phpstan": "phpstan analyse --level 7 src test",
-        "test-all": "composer test-coverage && composer cs && composer phpstan"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0",
-        "squizlabs/php_codesniffer": "^3.4",
-        "phpstan/phpstan": "^0.11.2"
+        "loc": "phploc -vvv src",
+        "test-all": "composer test-coverage && composer cs && composer phpstan && composer loc"
     }
 }
