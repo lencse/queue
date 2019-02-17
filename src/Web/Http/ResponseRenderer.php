@@ -4,5 +4,5 @@ namespace Lencse\Queue\Web\Http;
 
 interface ResponseRenderer
 {
-    public function render(Response $response): void;
+    public function render(JsonResponse $response): void;
 }

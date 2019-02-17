@@ -2,31 +2,9 @@
 
 namespace Lencse\Queue\Web\Http;
 
-final class Response
+interface Response
 {
-    /**
-     * @var string[]
-     */
-    private $headers;
+    public function headers(): array;
 
-    /**
-     * @var string
-     */
-    private $content;
-
-    public function __construct(array $headers, string $content)
-    {
-        $this->headers = $headers;
-        $this->content = $content;
-    }
-
-    public function headers(): array
-    {
-        return $this->headers;
-    }
-
-    public function content(): string
-    {
-        return $this->content;
-    }
+    public function content(): string;
 }

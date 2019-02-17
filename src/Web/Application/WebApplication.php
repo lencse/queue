@@ -5,7 +5,7 @@ namespace Lencse\Queue\Web\Application;
 use Lencse\Queue\Application\Application;
 use Lencse\Queue\Application\Invoker;
 use Lencse\Queue\Web\Http\RequestSource;
-use Lencse\Queue\Web\Http\Response;
+use Lencse\Queue\Web\Http\JsonResponse;
 use Lencse\Queue\Web\Http\ResponseRenderer;
 use Lencse\Queue\Web\Routing\Router;
 
@@ -49,10 +49,7 @@ final class WebApplication implements Application
         $routing = $this->router->route($request);
         $data = $this->invoker->invoke($routing->handler()->action());
         $encoded = $this->invoker->invoke($routing->handler()->encoder(), [$data]);
-        $response = new Response([
-            'HTTP/1.1 200 OK',
-            'Content-Type: application/json; charset=utf-8',
-        ], $encoded);
+        $response = new JsonResponse($encoded);
         $this->responseRenderer->render($response);
     }
 }

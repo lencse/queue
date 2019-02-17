@@ -7,7 +7,7 @@ use Lencse\Queue\Web\Application\WebApplication;
 use Lencse\Queue\Web\Http\HttpMethod;
 use Lencse\Queue\Web\Http\Request;
 use Lencse\Queue\Web\Http\RequestSource;
-use Lencse\Queue\Web\Http\Response;
+use Lencse\Queue\Web\Http\JsonResponse;
 use Lencse\Queue\Web\Http\ResponseRenderer;
 use Lencse\Queue\Web\Routing\Handler;
 use Lencse\Queue\Web\Routing\Path;
@@ -45,11 +45,11 @@ class WebTest extends TestCase
         $responseRenderer = new class implements ResponseRenderer
         {
             /**
-             * @var Response
+             * @var JsonResponse
              */
             public $response;
 
-            public function render(Response $response): void
+            public function render(JsonResponse $response): void
             {
                 $this->response = $response;
             }
@@ -61,7 +61,7 @@ class WebTest extends TestCase
             $responseRenderer
         );
         $app->run();
-        /** @var Response $response */
+        /** @var JsonResponse $response */
         $response = $responseRenderer->response;
         $this->assertEquals('/1/', $response->content());
         $this->assertEquals([

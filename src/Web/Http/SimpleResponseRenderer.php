@@ -4,8 +4,11 @@ namespace Lencse\Queue\Web\Http;
 
 class SimpleResponseRenderer implements ResponseRenderer
 {
-    public function render(Response $response): void
+    public function render(JsonResponse $response): void
     {
+        foreach ($response->headers() as $header) {
+            header($header);
+        }
         echo $response->content();
     }
 }

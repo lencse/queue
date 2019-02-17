@@ -28,10 +28,10 @@ class AurynContainer implements Container, Invoker
     public function invoke(string $class, array $params = [])
     {
         if (isset($params[0])) {
-            /** @var \Closure $callable */
+            /** @var callable $callable */
             $callable = $this->get($class);
 
-            return $callable->__invoke($params[0]);
+            $callable($params[0]);
         }
 
         return $this->auryn->execute($class, $params);
