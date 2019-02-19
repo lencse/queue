@@ -6,6 +6,8 @@ use Lencse\Queue\DependencyInjection\Adapter\AurynContainer;
 use Lencse\Queue\Job\CreateJob;
 use Lencse\Queue\Job\IdGenerator;
 use Lencse\Queue\Job\RandomIdGenerator;
+use Lencse\Queue\Queue\Adapter\RabbitQueue;
+use Lencse\Queue\Queue\Queue;
 use Lencse\Queue\Web\Http\RequestSource;
 use Lencse\Queue\Web\Http\ResponseRenderer;
 use Lencse\Queue\Web\Http\SimpleResponseRenderer;
@@ -26,10 +28,12 @@ $dic->alias(ResponseRenderer::class, SimpleResponseRenderer::class);
 
 $dic->setup(Router::class, ['routes' => $config['routes']]);
 
+$dic->alias(Queue::class, RabbitQueue::class);
+
 $dic->factory(
     CreateJob::class,
     function () use ($dic) {
-        return CreateJob::create($dic->get(IdGenerator::class));
+        return CreateJob::create($dic->get(IdGenerator::class), $dic->get(Queue::class));
     }
 );
 
