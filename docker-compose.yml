@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-    web:
+    nginx:
         image: nginx:latest
         ports:
             - '2006:80'
@@ -17,20 +17,19 @@ services:
             - .:/app
         working_dir: /app
         links:
-            - queue
-
-    queue:
+            - rabbitmq
+        depends_on:
+            - rabbitmq
+    rabbitmq:
         image: rabbitmq:3-management
-        hostname: 'queue'
+        hostname: 'rabbitmq'
         environment:
-            RABBITMQ_ERLANG_COOKIE: YWRUIFFVQNLSCMAOHIMQ
             RABBITMQ_DEFAULT_USER: rabbitmq
             RABBITMQ_DEFAULT_PASS: rabbitmq
-            RABBITMQ_DEFAULT_VHOST: '/'
         ports:
             - '15672:15672'
-            - '5672:5672'
+#            - '5672:5672'
         labels:
-            NAME: queue
+            NAME: rabbitmq
         volumes:
             - ./docker/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins

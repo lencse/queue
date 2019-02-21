@@ -29,6 +29,8 @@ $dic->alias(ResponseRenderer::class, SimpleResponseRenderer::class);
 $dic->setup(Router::class, ['routes' => $config['routes']]);
 
 $dic->alias(Queue::class, RabbitQueue::class);
+$dic->setup(RabbitQueue::class, $config['rabbitmq']);
+
 
 $dic->factory(
     CreateJob::class,

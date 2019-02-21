@@ -14,7 +14,13 @@ return [
         'min' => (int) env('JOB_ID_MIN_VALUE'),
         'max' => (int) env('JOB_ID_MAX_VALUE'),
     ],
+    'rabbitmq' => [
+        'host' => env('RABBITMQ_HOST'),
+        'port' => (int) env('RABBITMQ_PORT'),
+        'user' => env('RABBITMQ_USER'),
+        'password' => env('RABBITMQ_PASSWORD'),
+    ],
     'routes' => [
         new Route(HttpMethod::post(), new Path('/api/job'), new Handler(CreateJob::class, JobEncoder::class)),
-    ]
+    ],
 ];
