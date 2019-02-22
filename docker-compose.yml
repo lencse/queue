@@ -20,6 +20,16 @@ services:
             - rabbitmq
         depends_on:
             - rabbitmq
+    queue:
+        build: ./docker/php
+        volumes:
+            - .:/app
+        working_dir: /app/queue
+        links:
+            - rabbitmq
+        depends_on:
+            - rabbitmq
+        command: /app/queue/queue.php
     rabbitmq:
         image: rabbitmq:3-management
         hostname: 'rabbitmq'

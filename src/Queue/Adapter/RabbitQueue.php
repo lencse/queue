@@ -15,7 +15,7 @@ class RabbitQueue implements Queue
      */
     private $channel;
 
-    public function __construct(string $host, int $port, string $user, string $password)
+    public function __construct(string $host, $port, string $user, string $password)
     {
         $conn = new AMQPStreamConnection($host, $port, $user, $password);
         $this->channel = $conn->channel();
