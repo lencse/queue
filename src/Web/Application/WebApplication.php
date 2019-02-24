@@ -48,7 +48,7 @@ final class WebApplication implements Application
         $request = $this->requestSource->create();
         $routing = $this->router->route($request);
         $data = $this->invoker->invoke($routing->handler()->action());
-        $encoded = $this->invoker->invoke($routing->handler()->encoder(), [$data]);
+        $encoded = $this->invoker->invoke($routing->handler()->encoder(), $data);
         $response = new JsonResponse($encoded);
         $this->responseRenderer->render($response);
     }

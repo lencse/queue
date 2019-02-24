@@ -25,23 +25,12 @@ final class AurynContainer implements Container, Invoker
         $this->auryn->share($this);
     }
 
-    public function invoke(string $class, array $params = [])
+    public function invoke(string $class, ...$params)
     {
-        if (isset($params[0])) {
-            /** @var callable $callable */
-            $callable = $this->get($class);
+        /** @var callable $callable */
+        $callable = $this->get($class);
 
-            $callable($params[0]);
-        }
-
-        if (0 === count($params)) {
-            /** @var callable $callable */
-            $callable = $this->get($class);
-
-            $callable($params[0]);
-        }
-
-        return $this->auryn->execute($class, $params);
+        return $callable(...$params);
     }
 
     public function alias(string $abstract, string $concrete): void

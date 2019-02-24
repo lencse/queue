@@ -31,7 +31,7 @@ class WebTest extends TestCase
         ]);
         $invoker = new class implements Invoker
         {
-            public function invoke(string $class, array $params = [])
+            public function invoke(string $class, ...$params)
             {
                 if ('Action' === $class) {
                     return 1;
