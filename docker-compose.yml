@@ -27,8 +27,10 @@ services:
         working_dir: /app/queue
         links:
             - rabbitmq
+            - mongodb
         depends_on:
             - rabbitmq
+            - mongodb
         command:
             - /app/queue/queue.php
     rabbitmq:
@@ -44,3 +46,8 @@ services:
             NAME: rabbitmq
         volumes:
             - ./docker/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+    mongodb:
+        image: mongo:3
+        container_name: mongodb
+        ports:
+          - '27017:27017'
