@@ -6,6 +6,8 @@ use Lencse\Queue\DependencyInjection\Adapter\AurynContainer;
 use Lencse\Queue\Job\CreateJob;
 use Lencse\Queue\Job\IdGenerator;
 use Lencse\Queue\Job\RandomIdGenerator;
+use Lencse\Queue\Logging\ConsoleLogger;
+use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Queue\Adapter\RabbitQueue;
 use Lencse\Queue\Queue\Queue;
 use Lencse\Queue\Web\Http\RequestSource;
@@ -31,6 +33,7 @@ $dic->setup(Router::class, ['routes' => $config['routes']]);
 $dic->alias(Queue::class, RabbitQueue::class);
 $dic->setup(RabbitQueue::class, $config['rabbitmq']);
 
+$dic->alias(Logger::class, ConsoleLogger::class);
 
 $dic->factory(
     CreateJob::class,
