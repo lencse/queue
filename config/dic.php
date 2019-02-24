@@ -8,7 +8,9 @@ use Lencse\Queue\Job\IdGenerator;
 use Lencse\Queue\Job\RandomIdGenerator;
 use Lencse\Queue\Logging\ConsoleLogger;
 use Lencse\Queue\Logging\Logger;
+use Lencse\Queue\Logging\MessageStore;
 use Lencse\Queue\Logging\MongoLogger;
+use Lencse\Queue\Logging\MongoMessageStore;
 use Lencse\Queue\Queue\Adapter\RabbitQueue;
 use Lencse\Queue\Queue\Queue;
 use Lencse\Queue\Web\Http\RequestSource;
@@ -35,6 +37,8 @@ $dic->alias(Queue::class, RabbitQueue::class);
 $dic->setup(RabbitQueue::class, $config['rabbitmq']);
 
 $dic->alias(Logger::class, MongoLogger::class);
+
+$dic->alias(MessageStore::class, MongoMessageStore::class);
 
 $dic->factory(
     CreateJob::class,

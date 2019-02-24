@@ -34,6 +34,13 @@ final class AurynContainer implements Container, Invoker
             $callable($params[0]);
         }
 
+        if (0 === count($params)) {
+            /** @var callable $callable */
+            $callable = $this->get($class);
+
+            $callable($params[0]);
+        }
+
         return $this->auryn->execute($class, $params);
     }
 
