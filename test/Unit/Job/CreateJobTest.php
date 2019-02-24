@@ -39,6 +39,6 @@ class CreateJobTest extends TestCase
         );
         $result = $createJob();
         $this->assertEquals(1, $result->id());
-        $this->assertEquals(new JobData(1), $queue->jobData());
+        $this->assertEquals(new JobData(1, 0), $queue->jobData());
     }
 }

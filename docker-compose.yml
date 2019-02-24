@@ -29,7 +29,8 @@ services:
             - rabbitmq
         depends_on:
             - rabbitmq
-        command: /app/queue/queue.php
+        command:
+            - /app/queue/queue.php
     rabbitmq:
         image: rabbitmq:3-management
         hostname: 'rabbitmq'

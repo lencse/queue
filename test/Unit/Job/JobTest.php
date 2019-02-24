@@ -18,11 +18,13 @@ class JobTest extends TestCase
             }
         });
         $this->assertEquals(1, $job->id());
+        $this->assertEquals(0, $job->tries());
     }
 
-    public function testFromUd(): void
+    public function testFromDaat(): void
     {
-        $job = Job::fromData(new JobData(1));
+        $job = Job::fromData(new JobData(1, 2));
         $this->assertEquals(1, $job->id());
+        $this->assertEquals(2, $job->tries());
     }
 }

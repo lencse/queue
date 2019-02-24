@@ -5,6 +5,8 @@ namespace App;
 
 use Lencse\Queue\Application\Application;
 use Lencse\Queue\DependencyInjection\Container;
+use Lencse\Queue\Job\JobData;
+use Lencse\Queue\Job\ProcessJob;
 use Lencse\Queue\Web\Application\WebApplication;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -14,26 +16,22 @@ require_once '../bootstrap.php';
 /** @var Container $dic */
 $dic = require '../config/dic.php';
 
-///** @var Application $app */
-//$app = $dic->get(WebApplication::class);
-//$app->run();
-
-
 do {
    $r = @fsockopen(env('RABBITMQ_HOST'), (int) env('RABBITMQ_PORT'));
 } while (!is_resource($r));
 
-//while (!$conn) {
-//    try {
 $conn = new AMQPStreamConnection(env('RABBITMQ_HOST'), (int) env('RABBITMQ_PORT'), env('RABBITMQ_USER'), env('RABBITMQ_PASSWORD'));
-//    } catch (\Throwable $e) {}
-//}
 $channel = $conn->channel();
 
 $channel->queue_declare('job', false, false, false, false);
 
-$callback = function (AMQPMessage $msg) {
-    var_dump(unserialize($msg->body));
+/** @var ProcessJob $process */
+$process = $dic->get(ProcessJob::class);
+
+$callback = function (AMQPMessage $msg) use ($process) {
+    $process(unserialize($msg->body, [JobData::class]));
+//    $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
+//    $process(unserialize($msg->body, [JobData::class]));
 };
 
 $channel->basic_consume('job', '', false, true, false, false, $callback);
@@ -41,5 +39,3 @@ $channel->basic_consume('job', '', false, true, false, false, $callback);
 while (count($channel->callbacks)) {
     $channel->wait();
 }
-
-var_dump('XXX');
