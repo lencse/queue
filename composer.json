@@ -41,7 +41,7 @@
         "test": "phpunit",
         "test-coverage": "phpunit --coverage-html logs/phpunit/coverage-report --coverage-clover logs/phpunit/clover.xml --coverage-text --log-junit logs/phpunit/test-report.xml",
         "cs": "phpcs --standard=PSR2 src test",
-        "phpstan": "phpstan analyse --level 7 src test",
+        "phpstan": "phpstan analyse --level 7 src",
         "loc": "phploc -vvv src",
         "phpmetrics": "phpmetrics --report-html=logs/phpmetrics --junit=logs/phpunit/test-report.xml src",
         "test-all": "composer test-coverage && composer cs && composer phpstan && composer phpmetrics && composer loc"

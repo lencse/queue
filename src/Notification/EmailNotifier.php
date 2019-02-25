@@ -6,7 +6,7 @@ use Lencse\Queue\Job\Job;
 use Lencse\Queue\Mail\Mail;
 use Lencse\Queue\Mail\Mailer;
 
-class EmailNotifier implements Notifier
+final class EmailNotifier implements Notifier
 {
     /**
      * @var string

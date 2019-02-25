@@ -5,7 +5,7 @@ namespace Lencse\Queue\Job;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Queue\Queue;
 
-class JobFailHandler implements JobHandler
+final class JobFailHandler implements JobHandler
 {
     /**
      * @var Logger

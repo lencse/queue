@@ -6,7 +6,7 @@ use Lencse\Queue\Job\Job;
 use Lencse\Queue\Queue\Queue;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class RabbitQueue implements Queue
+final class RabbitQueue implements Queue
 {
     /**
      * @var RabbitSetup

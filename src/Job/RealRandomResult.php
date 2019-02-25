@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Job;
 
-class RealRandomResult implements RandomResult
+final class RealRandomResult implements RandomResult
 {
     /**
      * @var int

@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Job;
 
-class ProcessJob
+final class ProcessJob
 {
     /**
      * @var SuccessOrFail

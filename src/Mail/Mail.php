@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Mail;
 
-class Mail
+final class Mail
 {
     /**
      * @var string

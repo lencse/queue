@@ -5,7 +5,7 @@ namespace Lencse\Queue\Logging;
 use MongoDB\Driver\BulkWrite;
 use MongoDB\Driver\Manager;
 
-class MongoLogger implements Logger
+final class MongoLogger implements Logger
 {
     /**
      * @var Manager

@@ -13,5 +13,4 @@ class JobEncoderTest extends TestCase
         $encoder = new JobEncoder();
         $this->assertEquals('{"id":0}', $encoder(new Job(0, 0)));
     }
-
 }

@@ -8,7 +8,7 @@ use Lencse\Queue\Job\ProcessJob;
 use Lencse\Queue\Queue\Adapter\RabbitSetup;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class QueueApplication implements Application
+final class QueueApplication implements Application
 {
     /**
      * @var ProcessJob
