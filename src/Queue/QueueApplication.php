@@ -6,7 +6,6 @@ use Lencse\Queue\Application\Application;
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\ProcessJob;
 use Lencse\Queue\Queue\Adapter\RabbitSetup;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
 class QueueApplication implements Application
