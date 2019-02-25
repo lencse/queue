@@ -41,7 +41,6 @@ services:
             RABBITMQ_DEFAULT_PASS: rabbitmq
         ports:
             - '15672:15672'
-#            - '5672:5672'
         labels:
             NAME: rabbitmq
         volumes:
