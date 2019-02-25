@@ -11,7 +11,7 @@ class GetMessagesTest extends TestCase
 {
     public function testGetMessages(): void
     {
-        $getMessages = new GetMessages(new class implements MessageStore {
+        $getMessages = new GetMessages(new class() implements MessageStore {
             public function getMessages(): array
             {
                 return [
