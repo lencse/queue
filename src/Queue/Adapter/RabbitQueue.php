@@ -4,8 +4,6 @@ namespace Lencse\Queue\Queue\Adapter;
 
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Queue\Queue;
-use PhpAmqpLib\Channel\AMQPChannel;
-use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
 class RabbitQueue implements Queue
