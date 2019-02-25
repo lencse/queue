@@ -22,6 +22,7 @@ use Lencse\Queue\Web\Http\ResponseRenderer;
 use Lencse\Queue\Web\Http\SimpleResponseRenderer;
 use Lencse\Queue\Web\Http\SuperGlobalsRequestSource;
 use Lencse\Queue\Web\Routing\Router;
+use MongoDB\Driver\Manager;
 
 $config = require 'config.php';
 
@@ -35,14 +36,18 @@ $dic->setup(SuperGlobalsRequestSource::class, ['serverArr' => $_SERVER]);
 
 $dic->alias(ResponseRenderer::class, SimpleResponseRenderer::class);
 
-$dic->setup(Router::class, ['routes' => $config['routes']]);
+$dic->setup(Router::class, ['routes' => require 'routes.php']);
 
 $dic->alias(Queue::class, RabbitQueue::class);
 $dic->setup(RabbitQueue::class, $config['rabbitmq']);
 
+$dic->setup(Manager::class, ['uri' => $config['mongo']['url']]);
+
 $dic->alias(Logger::class, MongoLogger::class);
+$dic->setup(MongoLogger::class, ['collection' => $config['mongo']['collection']]);
 
 $dic->alias(MessageStore::class, MongoMessageStore::class);
+$dic->setup(MongoMessageStore::class, ['collection' => $config['mongo']['collection']]);
 
 $dic->alias(Notifier::class, EmailNotifier::class);
 $dic->setup(EmailNotifier::class, $config['notification-mail']);

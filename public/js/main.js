@@ -28,7 +28,9 @@ $(document).ready(() => {
                     ].join(' ')
                 ).join("\n")
             )
-            $('.info').scrollTop($('.info')[0].scrollHeight)
+            $('.info').animate({
+                scrollTop: $('.info')[0].scrollHeight
+            }, 1000)
         })
     }, 500)
 })

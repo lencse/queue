@@ -292,7 +292,8 @@ button#create-job {
     height: 3em;
     background: #0266c8;
     color: #fff;
-    font-family: Verdana sans-serif;
+    font-family: sans-serif;
+    border: none;
 }
 
 div.info {
@@ -301,9 +302,11 @@ div.info {
     left: 0;
     right: 0;
     bottom: 0;
-    overflow: scroll;
+    overflow: hidden;
+    background: #d1e8fe;
 }
 
 pre#logs {
     font-size: 0.8em;
+    padding: 0.8em;
 }

@@ -3,17 +3,29 @@
 namespace Lencse\Queue\Logging;
 
 use DateTimeImmutable;
-use MongoDB\Driver\BulkWrite;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 
-class MongoMessageStore implements MessageStore
+final class MongoMessageStore implements MessageStore
 {
+    /**
+     * @var Manager
+     */
+    private $mongo;
+    /**
+     * @var string
+     */
+    private $collection;
+
+    public function __construct(Manager $mongo, string $collection)
+    {
+        $this->mongo = $mongo;
+        $this->collection = $collection;
+    }
     public function getMessages(): array
     {
-        $manager = new Manager('mongodb://mongodb:27017/queue');
         $query = new Query([], ['sort' => ['time' => -1]]);
-        $cursor = $manager->executeQuery('queue.logs', $query);
+        $cursor = $this->mongo->executeQuery($this->collection, $query);
         $result = [];
         foreach ($cursor as $doc) {
             /** @var DateTimeImmutable $ts */
@@ -22,16 +34,5 @@ class MongoMessageStore implements MessageStore
         }
 
         return $result;
-    }
-
-    public function log(string $msg): void
-    {
-        $manager = new Manager('mongodb://mongodb:27017/queue');
-        $bulk = new BulkWrite();
-        $bulk->insert([
-            'msg' => $msg,
-            'timestamp' => microtime(true),
-        ]);
-        $manager->executeBulkWrite('queue.logs', $bulk);
     }
 }

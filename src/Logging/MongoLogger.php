@@ -7,14 +7,28 @@ use MongoDB\Driver\Manager;
 
 class MongoLogger implements Logger
 {
+    /**
+     * @var Manager
+     */
+    private $mongo;
+    /**
+     * @var string
+     */
+    private $collection;
+
+    public function __construct(Manager $mongo, string $collection)
+    {
+        $this->mongo = $mongo;
+        $this->collection = $collection;
+    }
+
     public function log(string $msg): void
     {
-        $manager = new Manager('mongodb://mongodb:27017/queue');
         $bulk = new BulkWrite();
         $bulk->insert([
             'msg' => $msg,
             'timestamp' => microtime(true),
         ]);
-        $manager->executeBulkWrite('queue.logs', $bulk);
+        $this->mongo->executeBulkWrite($this->collection, $bulk);
     }
 }
