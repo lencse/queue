@@ -15,6 +15,7 @@ return [
         'port' => env('RABBITMQ_PORT'),
         'user' => env('RABBITMQ_USER'),
         'password' => env('RABBITMQ_PASSWORD'),
+        'queueName' => env('RABBITMQ_QUEUE_NAME'),
     ],
     'notification-mail' => [
         'from' => env('NOTIFICATION_MAIL_FROM'),

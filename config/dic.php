@@ -16,6 +16,7 @@ use Lencse\Queue\Mail\MailgunMailer;
 use Lencse\Queue\Notification\EmailNotifier;
 use Lencse\Queue\Notification\Notifier;
 use Lencse\Queue\Queue\Adapter\RabbitQueue;
+use Lencse\Queue\Queue\Adapter\RabbitSetup;
 use Lencse\Queue\Queue\Queue;
 use Lencse\Queue\Web\Http\RequestSource;
 use Lencse\Queue\Web\Http\ResponseRenderer;
@@ -23,6 +24,7 @@ use Lencse\Queue\Web\Http\SimpleResponseRenderer;
 use Lencse\Queue\Web\Http\SuperGlobalsRequestSource;
 use Lencse\Queue\Web\Routing\Router;
 use MongoDB\Driver\Manager;
+use PhpAmqpLib\Connection\AMQPStreamConnection;
 
 $config = require 'config.php';
 
@@ -39,7 +41,10 @@ $dic->alias(ResponseRenderer::class, SimpleResponseRenderer::class);
 $dic->setup(Router::class, ['routes' => require 'routes.php']);
 
 $dic->alias(Queue::class, RabbitQueue::class);
-$dic->setup(RabbitQueue::class, $config['rabbitmq']);
+
+$dic->setup(AMQPStreamConnection::class, $config['rabbitmq']);
+
+$dic->setup(RabbitSetup::class, $config['rabbitmq']);
 
 $dic->setup(Manager::class, ['uri' => $config['mongo']['url']]);
 

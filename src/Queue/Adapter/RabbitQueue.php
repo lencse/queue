@@ -11,19 +11,19 @@ use PhpAmqpLib\Message\AMQPMessage;
 class RabbitQueue implements Queue
 {
     /**
-     * @var AMQPChannel
+     * @var RabbitSetup
      */
-    private $channel;
+    private $rabbitSetup;
 
-    public function __construct(string $host, $port, string $user, string $password)
+    public function __construct(RabbitSetup $rabbitSetup)
     {
-        $conn = new AMQPStreamConnection($host, $port, $user, $password);
-        $this->channel = $conn->channel();
-        $this->channel->queue_declare('job', false, false, false, false);
+        $this->rabbitSetup = $rabbitSetup;
     }
 
     public function saveJob(Job $job): void
     {
-        $this->channel->basic_publish(new AMQPMessage(serialize($job)), '', 'job');
+        $channel = $this->rabbitSetup->rabbitMq()->channel();
+        $channel->queue_declare($this->rabbitSetup->queueName(), false, false, false, false);
+        $channel->basic_publish(new AMQPMessage(serialize($job)), '', $this->rabbitSetup->queueName());
     }
 }
