@@ -63,7 +63,7 @@ class ProcessJobTest extends TestCase
             }
         };
         $process = new ProcessJob(
-            new SuccessOrFail($randomResult),
+            new SuccessOrFail($randomResult, 3),
             new JobSuccesHandler($logger),
             new JobFailHandler($logger, $queue),
             new JobPermanentFailHandler($logger, $notifier)
