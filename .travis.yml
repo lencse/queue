@@ -9,7 +9,8 @@ cache:
 
 before_install:
     - travis_retry composer self-update
-    - pecl -q install mongo && echo "extension=mongo.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+    - pecl install mongodb
+    - echo "extension=mongodb.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 install:
     - composer install --prefer-dist --no-interaction
