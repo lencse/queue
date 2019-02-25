@@ -4,5 +4,5 @@
 require_once '../bootstrap.php';
 
 do {
-   $r = @fsockopen(env('RABBITMQ_HOST'), (int) env('RABBITMQ_PORT'));
+    $r = @fsockopen(env('RABBITMQ_HOST'), (int) env('RABBITMQ_PORT'));
 } while (!is_resource($r));

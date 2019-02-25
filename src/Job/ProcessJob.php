@@ -7,18 +7,15 @@ class ProcessJob
     /**
      * @var SuccessOrFail
      */
-
     private $successOrFail;
 
     /**
      * @var JobSuccesHandler
      */
-
     private $successHandler;
     /**
      * @var JobFailHandler
      */
-
     private $failHandler;
     /**
      * @var JobPermanentFailHandler
@@ -27,7 +24,7 @@ class ProcessJob
 
     public function __construct(
         SuccessOrFail $successOrFail,
-        JobSuccesHandler$successHandler,
+        JobSuccesHandler $successHandler,
         JobFailHandler $failHandler,
         JobPermanentFailHandler $permanentFailHandler
     ) {

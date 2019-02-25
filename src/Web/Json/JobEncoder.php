@@ -9,8 +9,9 @@ final class JobEncoder
     public function __invoke(Job $job): string
     {
         $result = json_encode([
-            'id' => $job->id()
+            'id' => $job->id(),
         ]);
+
         return $result ?: '';
     }
 }

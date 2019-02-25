@@ -22,7 +22,6 @@ class RabbitQueue implements Queue
         $this->channel->queue_declare('job', false, false, false, false);
     }
 
-
     public function saveJob(Job $job): void
     {
         $this->channel->basic_publish(new AMQPMessage(serialize($job)), '', 'job');

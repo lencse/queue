@@ -22,6 +22,7 @@ final class MongoMessageStore implements MessageStore
         $this->mongo = $mongo;
         $this->collection = $collection;
     }
+
     public function getMessages(): array
     {
         $query = new Query([], ['sort' => ['time' => -1]]);

@@ -10,7 +10,7 @@ class JobTest extends TestCase
 {
     public function testCreate(): void
     {
-        $job = Job::create(new class implements IdGenerator {
+        $job = Job::create(new class() implements IdGenerator {
             public function generate(): int
             {
                 return 1;
