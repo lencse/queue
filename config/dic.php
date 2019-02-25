@@ -3,10 +3,10 @@
 namespace App;
 
 use Lencse\Queue\DependencyInjection\Adapter\AurynContainer;
-use Lencse\Queue\Job\CreateJob;
 use Lencse\Queue\Job\IdGenerator;
 use Lencse\Queue\Job\RandomIdGenerator;
-use Lencse\Queue\Logging\ConsoleLogger;
+use Lencse\Queue\Job\RandomResult;
+use Lencse\Queue\Job\RealRandomResult;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Logging\MessageStore;
 use Lencse\Queue\Logging\MongoLogger;
@@ -54,5 +54,8 @@ $dic->setup(EmailNotifier::class, $config['notification-mail']);
 
 $dic->alias(Mailer::class, MailgunMailer::class);
 $dic->setup(MailgunMailer::class, $config['mailgun']);
+
+$dic->alias(RandomResult::class, RealRandomResult::class);
+$dic->setup(RealRandomResult::class, $config['random']);
 
 return $dic;

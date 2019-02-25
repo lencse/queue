@@ -7,6 +7,9 @@ return [
         'min' => (int) env('JOB_ID_MIN_VALUE'),
         'max' => (int) env('JOB_ID_MAX_VALUE'),
     ],
+    'random' => [
+        'successFailureRatio' => env('SUCCESS_FAILURE_RATIO'),
+    ],
     'rabbitmq' => [
         'host' => env('RABBITMQ_HOST'),
         'port' => env('RABBITMQ_PORT'),
