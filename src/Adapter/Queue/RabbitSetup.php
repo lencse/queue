@@ -1,6 +1,6 @@
 <?php
 
-namespace Lencse\Queue\Queue\Adapter;
+namespace Lencse\Queue\Adapter\Queue;
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 

@@ -2,7 +2,7 @@
 
 namespace Test\Unit\Job;
 
-use Lencse\Queue\Job\RandomIdGenerator;
+use Lencse\Queue\Adapter\Id\RandomIdGenerator;
 use PHPUnit\Framework\TestCase;
 
 class RandomIdGeneratorTest extends TestCase

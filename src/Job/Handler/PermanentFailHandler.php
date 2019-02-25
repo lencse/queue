@@ -1,11 +1,13 @@
 <?php
 
-namespace Lencse\Queue\Job;
+namespace Lencse\Queue\Job\Handler;
 
+use Lencse\Queue\Job\Handler\JobHandler;
+use Lencse\Queue\Job\Job;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Notification\Notifier;
 
-final class JobPermanentFailHandler implements JobHandler
+final class PermanentFailHandler implements JobHandler
 {
     /**
      * @var Logger

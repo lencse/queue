@@ -1,8 +1,9 @@
 <?php
 
-namespace Lencse\Queue\Queue\Adapter;
+namespace Lencse\Queue\Adapter\Queue;
 
 use Lencse\Queue\Job\Job;
+use Lencse\Queue\Adapter\Queue\RabbitSetup;
 use Lencse\Queue\Queue\Queue;
 use PhpAmqpLib\Message\AMQPMessage;
 

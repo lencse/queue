@@ -2,7 +2,7 @@
 
 namespace Test\Unit\DependencyInjection;
 
-use Lencse\Queue\DependencyInjection\Adapter\AurynContainer;
+use Lencse\Queue\Adapter\DependencyInjection\AurynContainer;
 use PHPUnit\Framework\TestCase;
 
 class AurynContainerTest extends TestCase implements TestInterface

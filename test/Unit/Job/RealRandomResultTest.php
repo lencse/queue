@@ -2,7 +2,7 @@
 
 namespace Test\Unit\Job;
 
-use Lencse\Queue\Job\RealRandomResult;
+use Lencse\Queue\Adapter\Job\Processing\RealRandomResult;
 use PHPUnit\Framework\TestCase;
 
 class RealRandomResultTest extends TestCase

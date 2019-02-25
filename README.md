@@ -1,4 +1,4 @@
-# Queue
+# Queue [![Build Status](https://travis-ci.org/lencse/queue.svg?branch=master)](https://travis-ci.org/lencse/queue)
 
 A PHP queue worker example
 
@@ -20,10 +20,11 @@ cp .env.example .env
 
 Fill `.env` file with email settings
 
-#### 1. Start app
+#### 2. Start app
 
 ```
 docker-compose up
+# Have a coffe, takes a bit long...
 ```
 
 Open [http://localhost:2006/](http://localhost:2006/)

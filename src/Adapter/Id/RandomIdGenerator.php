@@ -1,6 +1,8 @@
 <?php
 
-namespace Lencse\Queue\Job;
+namespace Lencse\Queue\Adapter\Id;
+
+use Lencse\Queue\Id\IdGenerator;
 
 final class RandomIdGenerator implements IdGenerator
 {

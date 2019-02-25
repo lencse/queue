@@ -2,6 +2,11 @@
 
 namespace Lencse\Queue\Job;
 
+use Lencse\Queue\Job\Handler\FailHandler;
+use Lencse\Queue\Job\Handler\PermanentFailHandler;
+use Lencse\Queue\Job\Handler\SuccesHandler;
+use Lencse\Queue\Job\Processing\SuccessOrFail;
+
 final class ProcessJob
 {
     /**
@@ -10,23 +15,23 @@ final class ProcessJob
     private $successOrFail;
 
     /**
-     * @var JobSuccesHandler
+     * @var SuccesHandler
      */
     private $successHandler;
     /**
-     * @var JobFailHandler
+     * @var FailHandler
      */
     private $failHandler;
     /**
-     * @var JobPermanentFailHandler
+     * @var PermanentFailHandler
      */
     private $permanentFailHandler;
 
     public function __construct(
         SuccessOrFail $successOrFail,
-        JobSuccesHandler $successHandler,
-        JobFailHandler $failHandler,
-        JobPermanentFailHandler $permanentFailHandler
+        SuccesHandler $successHandler,
+        FailHandler $failHandler,
+        PermanentFailHandler $permanentFailHandler
     ) {
         $this->successOrFail = $successOrFail;
         $this->successHandler = $successHandler;

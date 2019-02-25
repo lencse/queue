@@ -1,6 +1,8 @@
 <?php
 
-namespace Lencse\Queue\Job;
+namespace Lencse\Queue\Adapter\Job\Processing;
+
+use Lencse\Queue\Job\Processing\RandomResult;
 
 final class RealRandomResult implements RandomResult
 {

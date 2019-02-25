@@ -1,7 +1,9 @@
 <?php
 
-namespace Lencse\Queue\Mail;
+namespace Lencse\Queue\Adapter\Mail;
 
+use Lencse\Queue\Mail\Mail;
+use Lencse\Queue\Mail\Mailer;
 use Mailgun\Mailgun;
 
 final class MailgunMailer implements Mailer

@@ -1,7 +1,8 @@
 <?php
 
-namespace Lencse\Queue\Logging;
+namespace Lencse\Queue\Adapter\Logging;
 
+use Lencse\Queue\Logging\Logger;
 use MongoDB\Driver\BulkWrite;
 use MongoDB\Driver\Manager;
 

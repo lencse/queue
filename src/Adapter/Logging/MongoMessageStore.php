@@ -1,8 +1,10 @@
 <?php
 
-namespace Lencse\Queue\Logging;
+namespace Lencse\Queue\Adapter\Logging;
 
 use DateTimeImmutable;
+use Lencse\Queue\Logging\Message;
+use Lencse\Queue\Logging\MessageStore;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 

@@ -1,6 +1,10 @@
 <?php
 
-namespace Lencse\Queue\Job;
+namespace Lencse\Queue\Job\Processing;
+
+use Lencse\Queue\Job\Handler\JobHandler;
+use Lencse\Queue\Job\Job;
+use Lencse\Queue\Job\Processing\RandomResult;
 
 final class SuccessOrFail
 {

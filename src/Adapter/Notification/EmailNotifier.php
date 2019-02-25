@@ -1,10 +1,11 @@
 <?php
 
-namespace Lencse\Queue\Notification;
+namespace Lencse\Queue\Adapter\Notification;
 
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Mail\Mail;
 use Lencse\Queue\Mail\Mailer;
+use Lencse\Queue\Notification\Notifier;
 
 final class EmailNotifier implements Notifier
 {

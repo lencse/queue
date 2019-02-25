@@ -1,6 +1,6 @@
 <?php
 
-namespace Lencse\Queue\Job;
+namespace Lencse\Queue\Id;
 
 interface IdGenerator
 {

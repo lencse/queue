@@ -2,6 +2,7 @@
 
 namespace Lencse\Queue\Job;
 
+use Lencse\Queue\Id\IdGenerator;
 use Lencse\Queue\Queue\Queue;
 
 final class CreateJob

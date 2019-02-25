@@ -2,7 +2,7 @@
 
 namespace Test\Unit\Job;
 
-use Lencse\Queue\Job\IdGenerator;
+use Lencse\Queue\Id\IdGenerator;
 use Lencse\Queue\Job\Job;
 use PHPUnit\Framework\TestCase;
 

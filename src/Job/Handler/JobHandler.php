@@ -1,6 +1,8 @@
 <?php
 
-namespace Lencse\Queue\Job;
+namespace Lencse\Queue\Job\Handler;
+
+use Lencse\Queue\Job\Job;
 
 interface JobHandler
 {

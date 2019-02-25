@@ -1,6 +1,6 @@
 <?php
 
-namespace Lencse\Queue\DependencyInjection\Adapter;
+namespace Lencse\Queue\Adapter\DependencyInjection;
 
 use Auryn\Injector;
 use Lencse\Queue\Application\Invoker;
