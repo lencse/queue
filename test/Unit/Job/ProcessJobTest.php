@@ -18,8 +18,7 @@ class ProcessJobTest extends TestCase
 {
     public function testProcess(): void
     {
-        $randomResult = new class implements RandomResult
-        {
+        $randomResult = new class() implements RandomResult {
             /**
              * @var bool
              */
@@ -30,8 +29,7 @@ class ProcessJobTest extends TestCase
                 return $this->result;
             }
         };
-        $logger = new class implements Logger
-        {
+        $logger = new class() implements Logger {
             /**
              * @var string
              */
@@ -42,8 +40,7 @@ class ProcessJobTest extends TestCase
                 $this->msg = $msg;
             }
         };
-        $queue = new class implements Queue
-        {
+        $queue = new class() implements Queue {
             /**
              * @var Job
              */
@@ -54,8 +51,7 @@ class ProcessJobTest extends TestCase
                 $this->job = $job;
             }
         };
-        $notifier = new class implements Notifier
-        {
+        $notifier = new class() implements Notifier {
             /**
              * @var Job
              */

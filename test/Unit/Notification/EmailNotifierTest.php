@@ -12,8 +12,7 @@ class EmailNotifierTest extends TestCase
 {
     public function testNotify()
     {
-        $mailer = new class implements Mailer
-        {
+        $mailer = new class() implements Mailer {
             /**
              * @var Mail
              */
