@@ -8,7 +8,5 @@ interface Container
 
     public function setup(string $class, array $params): void;
 
-    public function factory(string $class, callable $factory): void;
-
     public function get(string $id): object;
 }

@@ -38,11 +38,6 @@ final class AurynContainer implements Container, Invoker
         $this->auryn->alias($abstract, $concrete);
     }
 
-    public function factory(string $class, callable $factory): void
-    {
-        $this->auryn->delegate($class, $factory);
-    }
-
     public function setup(string $class, array $params): void
     {
         $defineParams = [];
