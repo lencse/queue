@@ -7,8 +7,6 @@ use Lencse\Queue\Application\Application;
 use Lencse\Queue\DependencyInjection\Container;
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\ProcessJob;
-use Lencse\Queue\Web\Application\WebApplication;
-use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -16,10 +14,6 @@ require_once '../bootstrap.php';
 
 /** @var Container $dic */
 $dic = require '../config/dic.php';
-
-do {
-   $r = @fsockopen(env('RABBITMQ_HOST'), (int) env('RABBITMQ_PORT'));
-} while (!is_resource($r));
 
 $conn = new AMQPStreamConnection(env('RABBITMQ_HOST'), (int) env('RABBITMQ_PORT'), env('RABBITMQ_USER'), env('RABBITMQ_PASSWORD'));
 $channel = $conn->channel();
