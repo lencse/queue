@@ -25,7 +25,10 @@
         "vlucas/phpdotenv": "^3.3",
         "php-amqplib/php-amqplib": "^2.8",
         "ext-mongodb": "*",
-        "mongodb/mongodb": "^1.4"
+        "mongodb/mongodb": "^1.4",
+        "mailgun/mailgun-php": "^2.8",
+        "kriswallsmith/buzz": "^1.0",
+        "nyholm/psr7": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",

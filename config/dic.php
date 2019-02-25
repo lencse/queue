@@ -11,6 +11,10 @@ use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Logging\MessageStore;
 use Lencse\Queue\Logging\MongoLogger;
 use Lencse\Queue\Logging\MongoMessageStore;
+use Lencse\Queue\Mail\Mailer;
+use Lencse\Queue\Mail\MailgunMailer;
+use Lencse\Queue\Notification\EmailNotifier;
+use Lencse\Queue\Notification\Notifier;
 use Lencse\Queue\Queue\Adapter\RabbitQueue;
 use Lencse\Queue\Queue\Queue;
 use Lencse\Queue\Web\Http\RequestSource;
@@ -39,6 +43,12 @@ $dic->setup(RabbitQueue::class, $config['rabbitmq']);
 $dic->alias(Logger::class, MongoLogger::class);
 
 $dic->alias(MessageStore::class, MongoMessageStore::class);
+
+$dic->alias(Notifier::class, EmailNotifier::class);
+$dic->setup(EmailNotifier::class, $config['notification-mail']);
+
+$dic->alias(Mailer::class, MailgunMailer::class);
+$dic->setup(MailgunMailer::class, $config['mailgun']);
 
 $dic->factory(
     CreateJob::class,

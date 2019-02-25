@@ -23,7 +23,24 @@ return [
         'password' => env('RABBITMQ_PASSWORD'),
     ],
     'routes' => [
-        new Route(HttpMethod::post(), new Path('/api/job'), new Handler(CreateJob::class, JobEncoder::class)),
-        new Route(HttpMethod::get(), new Path('/api/log-messages'), new Handler(GetMessages::class, MessageArrayEncoder::class)),
+        new Route(
+            HttpMethod::post(),
+            new Path('/api/job'),
+            new Handler(CreateJob::class, JobEncoder::class)
+        ),
+        new Route(
+            HttpMethod::get(),
+            new Path('/api/log-messages'),
+            new Handler(GetMessages::class, MessageArrayEncoder::class)
+        ),
+    ],
+    'notification-mail' => [
+        'from' => env('NOTIFICATION_MAIL_FROM'),
+        'to' => env('NOTIFICATION_MAIL_TO'),
+    ],
+    'mailgun' => [
+        'apiKey' => env('MAILGUN_API_KEY'),
+        'apiUrl' => env('MAILGUN_API_URL'),
+        'domain' => env('MAILGUN_API_DOMAIN'),
     ],
 ];
