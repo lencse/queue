@@ -7,6 +7,7 @@ use Lencse\Queue\Job\IdGenerator;
 use Lencse\Queue\Job\RandomIdGenerator;
 use Lencse\Queue\Job\RandomResult;
 use Lencse\Queue\Job\RealRandomResult;
+use Lencse\Queue\Job\SuccessOrFail;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Logging\MessageStore;
 use Lencse\Queue\Logging\MongoLogger;
@@ -62,5 +63,7 @@ $dic->setup(MailgunMailer::class, $config['mailgun']);
 
 $dic->alias(RandomResult::class, RealRandomResult::class);
 $dic->setup(RealRandomResult::class, $config['random']);
+
+$dic->setup(SuccessOrFail::class, $config['jobs']);
 
 return $dic;

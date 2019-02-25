@@ -8,10 +8,15 @@ final class SuccessOrFail
      * @var RandomResult
      */
     private $randomResult;
+    /**
+     * @var int
+     */
+    private $maxTries;
 
-    public function __construct(RandomResult $randomResult)
+    public function __construct(RandomResult $randomResult, int $maxTries)
     {
         $this->randomResult = $randomResult;
+        $this->maxTries = $maxTries;
     }
 
     public function action(
@@ -22,7 +27,7 @@ final class SuccessOrFail
     ): void {
         if ($this->randomResult->success()) {
             $successHandler->handle($job);
-        } elseif ($job->tries() < 2) {
+        } elseif ($job->tries() < $this->maxTries - 1) {
             $failHandler->handle($job);
         } else {
             $permanentFailHandler->handle($job);

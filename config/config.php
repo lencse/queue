@@ -10,6 +10,9 @@ return [
     'random' => [
         'successFailureRatio' => env('SUCCESS_FAILURE_RATIO'),
     ],
+    'jobs' => [
+        'maxTries' => (int) env('MAX_TRIES'),
+    ],
     'rabbitmq' => [
         'host' => env('RABBITMQ_HOST'),
         'port' => env('RABBITMQ_PORT'),
