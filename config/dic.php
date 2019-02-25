@@ -55,11 +55,4 @@ $dic->setup(EmailNotifier::class, $config['notification-mail']);
 $dic->alias(Mailer::class, MailgunMailer::class);
 $dic->setup(MailgunMailer::class, $config['mailgun']);
 
-$dic->factory(
-    CreateJob::class,
-    function () use ($dic) {
-        return CreateJob::create($dic->get(IdGenerator::class), $dic->get(Queue::class));
-    }
-);
-
 return $dic;

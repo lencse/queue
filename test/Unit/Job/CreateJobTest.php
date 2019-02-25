@@ -4,7 +4,7 @@ namespace Test\Unit\Job;
 
 use Lencse\Queue\Job\CreateJob;
 use Lencse\Queue\Job\IdGenerator;
-use Lencse\Queue\Job\JobData;
+use Lencse\Queue\Job\Job;
 use Lencse\Queue\Queue\Queue;
 use PHPUnit\Framework\TestCase;
 
@@ -14,21 +14,21 @@ class CreateJobTest extends TestCase
     {
         $queue = new class implements Queue {
             /**
-             * @var JobData
+             * @var Job
              */
-            private $jobData;
+            private $job;
 
-            public function saveJob(JobData $jobData): void
+            public function saveJob(Job $job): void
             {
-                $this->jobData = $jobData;
+                $this->job = $job;
             }
 
-            public function jobData(): JobData
+            public function job(): Job
             {
-                return $this->jobData;
+                return $this->job;
             }
         };
-        $createJob = CreateJob::create(
+        $createJob = new CreateJob(
             new class implements IdGenerator {
                 public function generate(): int
                 {
@@ -39,6 +39,6 @@ class CreateJobTest extends TestCase
         );
         $result = $createJob();
         $this->assertEquals(1, $result->id());
-        $this->assertEquals(new JobData(1, 0), $queue->jobData());
+        $this->assertEquals(new Job(1, 0), $queue->job());
     }
 }

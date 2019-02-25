@@ -2,9 +2,9 @@
 
 namespace Lencse\Queue\Queue;
 
-use Lencse\Queue\Job\JobData;
+use Lencse\Queue\Job\Job;
 
 interface Queue
 {
-    public function saveJob(JobData $jobData): void;
+    public function saveJob(Job $job): void;
 }

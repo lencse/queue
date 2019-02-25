@@ -2,7 +2,7 @@
 
 namespace Lencse\Queue\Queue\Adapter;
 
-use Lencse\Queue\Job\JobData;
+use Lencse\Queue\Job\Job;
 use Lencse\Queue\Queue\Queue;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
@@ -23,8 +23,8 @@ class RabbitQueue implements Queue
     }
 
 
-    public function saveJob(JobData $jobData): void
+    public function saveJob(Job $job): void
     {
-        $this->channel->basic_publish(new AMQPMessage(serialize($jobData)), '', 'job');
+        $this->channel->basic_publish(new AMQPMessage(serialize($job)), '', 'job');
     }
 }

@@ -13,7 +13,7 @@ final class Job
      */
     private $tries;
 
-    private function __construct(int $id, int $tries)
+    public function __construct(int $id, int $tries)
     {
         $this->id = $id;
         $this->tries = $tries;
@@ -37,10 +37,5 @@ final class Job
     public static function create(IdGenerator $idGenerator): self
     {
         return new self($idGenerator->generate(), 0);
-    }
-
-    public static function fromData(JobData $data): self
-    {
-        return new self($data->id(), $data->tries());
     }
 }

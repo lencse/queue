@@ -5,7 +5,6 @@ namespace Lencse\Queue\Job;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Notification\Notifier;
 use Lencse\Queue\Queue\Queue;
-use Mailgun\Mailgun;
 
 class ProcessJob
 {

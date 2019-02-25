@@ -12,35 +12,20 @@ final class CreateJob
     private $idGenerator;
 
     /**
-     * @var JobDataMapper
-     */
-    private $dataMapper;
-
-    /**
      * @var Queue
      */
     private $queue;
 
-    private function __construct(
-        IdGenerator $idGenerator,
-        JobDataMapper $dataMapper,
-        Queue $queue
-    ) {
+    public function __construct(IdGenerator $idGenerator, Queue $queue) {
         $this->idGenerator = $idGenerator;
-        $this->dataMapper = $dataMapper;
         $this->queue = $queue;
     }
 
-    public static function create(IdGenerator $idGenerator, Queue $queue): self
+    public function __invoke(): Job
     {
-        return new self($idGenerator, new JobDataMapper(), $queue);
-    }
+        $job =Job::create($this->idGenerator);
+        $this->queue->saveJob($job);
 
-    public function __invoke(): JobData
-    {
-        $jobData = $this->dataMapper->jobToData(Job::create($this->idGenerator));
-        $this->queue->saveJob($jobData);
-
-        return $jobData;
+        return $job;
     }
 }
