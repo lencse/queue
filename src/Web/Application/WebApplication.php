@@ -4,8 +4,8 @@ namespace Lencse\Queue\Web\Application;
 
 use Lencse\Queue\Application\Application;
 use Lencse\Queue\Application\Invoker;
-use Lencse\Queue\Web\Http\RequestSource;
 use Lencse\Queue\Web\Http\JsonResponse;
+use Lencse\Queue\Web\Http\RequestSource;
 use Lencse\Queue\Web\Http\ResponseRenderer;
 use Lencse\Queue\Web\Routing\Router;
 

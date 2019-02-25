@@ -24,7 +24,7 @@ final class CreateJob
 
     public function __invoke(): Job
     {
-        $job =Job::create($this->idGenerator);
+        $job = Job::create($this->idGenerator);
         $this->queue->saveJob($job);
 
         return $job;

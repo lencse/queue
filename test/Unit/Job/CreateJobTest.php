@@ -12,7 +12,7 @@ class CreateJobTest extends TestCase
 {
     public function testCreate(): void
     {
-        $queue = new class implements Queue {
+        $queue = new class() implements Queue {
             /**
              * @var Job
              */
@@ -29,7 +29,7 @@ class CreateJobTest extends TestCase
             }
         };
         $createJob = new CreateJob(
-            new class implements IdGenerator {
+            new class() implements IdGenerator {
                 public function generate(): int
                 {
                     return 1;

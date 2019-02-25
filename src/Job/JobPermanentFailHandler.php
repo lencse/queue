@@ -4,7 +4,6 @@ namespace Lencse\Queue\Job;
 
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Notification\Notifier;
-use Lencse\Queue\Queue\Queue;
 
 final class JobPermanentFailHandler implements JobHandler
 {

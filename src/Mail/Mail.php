@@ -4,7 +4,6 @@ namespace Lencse\Queue\Mail;
 
 class Mail
 {
-
     /**
      * @var string
      */

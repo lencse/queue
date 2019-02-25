@@ -3,7 +3,6 @@
 
 namespace App;
 
-use Lencse\Queue\Application\Application;
 use Lencse\Queue\DependencyInjection\Container;
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\ProcessJob;
