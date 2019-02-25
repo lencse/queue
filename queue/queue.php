@@ -5,7 +5,7 @@ namespace App;
 
 use Lencse\Queue\Application\Application;
 use Lencse\Queue\DependencyInjection\Container;
-use Lencse\Queue\Job\JobData;
+use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\ProcessJob;
 use Lencse\Queue\Web\Application\WebApplication;
 use PhpAmqpLib\Channel\AMQPChannel;
@@ -30,7 +30,7 @@ $channel->queue_declare('job', false, false, false, false);
 $process = $dic->get(ProcessJob::class);
 
 $callback = function (AMQPMessage $msg) use ($process) {
-    $process(unserialize($msg->body, [JobData::class]));
+    $process(unserialize($msg->body, [Job::class]));
     $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
 };
 

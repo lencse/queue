@@ -16,7 +16,8 @@ final class CreateJob
      */
     private $queue;
 
-    public function __construct(IdGenerator $idGenerator, Queue $queue) {
+    public function __construct(IdGenerator $idGenerator, Queue $queue)
+    {
         $this->idGenerator = $idGenerator;
         $this->queue = $queue;
     }
