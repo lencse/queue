@@ -13,13 +13,16 @@ class ProcessJob
      * @var Queue
      */
     private $queue;
+
     /**
      * @var JobDataMapper
      */
     private $jobDataMapper;
+
     /**
      * @var Logger
      */
+
     private $logger;
     /**
      * @var Notifier
