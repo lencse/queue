@@ -1,0 +1,12 @@
+preset: recommended
+risky: true
+finder:
+    exclude:
+        - vendor
+    name: "*.php"
+
+disabled:
+    - align_double_arrow
+    - phpdoc_align
+    - phpdoc_to_comment
+    - concat_without_spaces
