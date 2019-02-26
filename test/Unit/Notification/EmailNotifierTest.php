@@ -2,10 +2,10 @@
 
 namespace Test\Unit\Notification;
 
+use Lencse\Queue\Adapter\Notification\EmailNotifier;
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Mail\Mail;
 use Lencse\Queue\Mail\Mailer;
-use Lencse\Queue\Adapter\Notification\EmailNotifier;
 use PHPUnit\Framework\TestCase;
 
 class EmailNotifierTest extends TestCase
