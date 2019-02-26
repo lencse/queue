@@ -4,7 +4,7 @@ namespace Lencse\Queue\Job\Processing;
 
 use Lencse\Queue\Job\Handler\JobHandler;
 use Lencse\Queue\Job\Job;
-use Lencse\Queue\Job\Processing\RandomResult;
+use Lencse\Queue\Random\RandomResult;
 
 final class SuccessOrFail
 {

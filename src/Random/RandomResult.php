@@ -1,6 +1,6 @@
 <?php
 
-namespace Lencse\Queue\Job\Processing;
+namespace Lencse\Queue\Random;
 
 interface RandomResult
 {

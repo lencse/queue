@@ -5,7 +5,7 @@ namespace App;
 use Lencse\Queue\Adapter\DependencyInjection\AurynContainer;
 use Lencse\Queue\Id\IdGenerator;
 use Lencse\Queue\Adapter\Id\RandomIdGenerator;
-use Lencse\Queue\Job\Processing\RandomResult;
+use Lencse\Queue\Random\RandomResult;
 use Lencse\Queue\Adapter\Job\Processing\RealRandomResult;
 use Lencse\Queue\Job\Processing\SuccessOrFail;
 use Lencse\Queue\Logging\Logger;

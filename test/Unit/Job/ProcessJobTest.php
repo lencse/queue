@@ -7,7 +7,7 @@ use Lencse\Queue\Job\Handler\FailHandler;
 use Lencse\Queue\Job\Handler\PermanentFailHandler;
 use Lencse\Queue\Job\Handler\SuccesHandler;
 use Lencse\Queue\Job\ProcessJob;
-use Lencse\Queue\Job\Processing\RandomResult;
+use Lencse\Queue\Random\RandomResult;
 use Lencse\Queue\Job\Processing\SuccessOrFail;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Notification\Notifier;
