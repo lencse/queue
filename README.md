@@ -40,3 +40,11 @@ Once the app is running, you can run the tests
 ```
 docker-compose run php composer test-all
 ```
+
+### Test including:
+
+* PHPUnit with coverage (See `logs/phpunit` for coverage report)
+* PHP Codesniffer 
+* PHPStan
+* PHPMetrics (See `logs/phpmetrics` for report)
+* LOC
