@@ -47,3 +47,5 @@ jobs:
                           -Dsonar.exclusions=logs/**,vendor/** \
                           -Dsonar.php.tests.reportPath=test-report.xml \
                           -Dsonar.php.coverage.reportPaths=coverage.xml
+
+                      
