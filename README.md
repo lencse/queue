@@ -1,4 +1,8 @@
-# Queue [![Build Status](https://travis-ci.org/lencse/queue.svg?branch=master)](https://travis-ci.org/lencse/queue)
+# Queue
+
+[![Build Status](https://travis-ci.org/lencse/queue.svg?branch=master)](https://travis-ci.org/lencse/queue)
+[![StyleCI](https://github.styleci.io/repos/171000344/shield?branch=master)](https://github.styleci.io/repos/171000344)
+
 
 A PHP queue worker example
 
