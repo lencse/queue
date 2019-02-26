@@ -2,7 +2,6 @@
 
 namespace Lencse\Queue\Job\Handler;
 
-use Lencse\Queue\Job\Handler\JobHandler;
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Notification\Notifier;

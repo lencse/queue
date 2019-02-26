@@ -2,10 +2,10 @@
 
 namespace Lencse\Queue\Queue;
 
+use Lencse\Queue\Adapter\Queue\RabbitSetup;
 use Lencse\Queue\Application\Application;
 use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\ProcessJob;
-use Lencse\Queue\Adapter\Queue\RabbitSetup;
 use PhpAmqpLib\Message\AMQPMessage;
 
 final class QueueApplication implements Application

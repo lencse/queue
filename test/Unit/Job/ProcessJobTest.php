@@ -2,16 +2,16 @@
 
 namespace Test\Unit\Job;
 
-use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\Handler\FailHandler;
 use Lencse\Queue\Job\Handler\PermanentFailHandler;
 use Lencse\Queue\Job\Handler\SuccesHandler;
-use Lencse\Queue\Job\ProcessJob;
-use Lencse\Queue\Random\RandomResult;
+use Lencse\Queue\Job\Job;
 use Lencse\Queue\Job\Processing\SuccessOrFail;
+use Lencse\Queue\Job\ProcessJob;
 use Lencse\Queue\Logging\Logger;
 use Lencse\Queue\Notification\Notifier;
 use Lencse\Queue\Queue\Queue;
+use Lencse\Queue\Random\RandomResult;
 use PHPUnit\Framework\TestCase;
 
 class ProcessJobTest extends TestCase
